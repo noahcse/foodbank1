@@ -28,6 +28,9 @@ API_Get_Image = config['other_api']['API_Get_Image']
 
 @app.route("/callback", methods=['POST'])
 def callback():
+    print "helloworld"
+    return "OK"
+'''
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
@@ -35,8 +38,7 @@ def callback():
     body = request.get_data(as_text=True)
     # print("body:",body)
     app.logger.info("Request body: " + body)
-    print "helloworld"
-'''
+
     # handle webhook body
     try:
         handler.handle(body, signature)
