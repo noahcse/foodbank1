@@ -29,7 +29,7 @@ API_Get_Image = config['other_api']['API_Get_Image']
 @app.route("/callback", methods=['POST'])
 def callback():
     print "helloworld"
-    return "OK"
+
 '''
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
