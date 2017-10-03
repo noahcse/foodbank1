@@ -28,9 +28,6 @@ handler = WebhookHandler(config['line_bot']['Channel_Secret'])
 
 @app.route("/callback", methods=['POST'])
 def callback():
-    print ("helloworld")
-    return "OK"
-'''
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
@@ -46,7 +43,7 @@ def callback():
         abort(400)
 
     return 'ok'
-'''
+
 
 def pattern_mega(text):
     patterns = [
