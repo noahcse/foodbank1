@@ -35,15 +35,16 @@ def callback():
     body = request.get_data(as_text=True)
     # print("body:",body)
     app.logger.info("Request body: " + body)
-
+    print "helloworld"
+'''
     # handle webhook body
-#    try:
-#        handler.handle(body, signature)
-#    except InvalidSignatureError:
-#        abort(400)
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        abort(400)
 
     return 'ok'
-
+'''
 
 def pattern_mega(text):
     patterns = [
