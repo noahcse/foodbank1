@@ -20,10 +20,10 @@ config.read("config.ini")
 
 line_bot_api = LineBotApi(config['line_bot']['Channel_Access_Token'])
 handler = WebhookHandler(config['line_bot']['Channel_Secret'])
-client_id = config['imgur_api']['Client_ID']
-client_secret = config['imgur_api']['Client_Secret']
-album_id = config['imgur_api']['Album_ID']
-API_Get_Image = config['other_api']['API_Get_Image']
+#client_id = config['imgur_api']['Client_ID']
+#client_secret = config['imgur_api']['Client_Secret']
+#album_id = config['imgur_api']['Album_ID']
+#API_Get_Image = config['other_api']['API_Get_Image']
 
 
 @app.route("/callback", methods=['POST'])
@@ -317,6 +317,7 @@ def handle_message(event):
             TextSendMessage(text=content))
         return 0
     if event.message.text == "來張 imgur 正妹圖片":
+        '''
         client = ImgurClient(client_id, client_secret)
         images = client.get_album_images(album_id)
         index = random.randint(0, len(images) - 1)
@@ -327,6 +328,7 @@ def handle_message(event):
         )
         line_bot_api.reply_message(
             event.reply_token, image_message)
+        '''
         return 0
     if event.message.text == "隨便來張正妹圖片":
         image = requests.get(API_Get_Image)
